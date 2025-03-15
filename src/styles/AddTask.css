@@ -1,0 +1,82 @@
+
+.add-task-container {
+    background-color: #F9F7F7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    color: #112D4E;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3F72AF;
+    margin-bottom: 5px;
+  }
+  
+  .task-input,
+  .task-textarea,
+  .task-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DBE2EF;
+    border-radius: 5px;
+    background-color: #F9F7F7;
+    color: #112D4E;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .task-input::placeholder,
+  .task-textarea::placeholder {
+    color: #A0A7B1;
+  }
+  
+  .task-textarea {
+    resize: none;
+    height: 60px;
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .add-task-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3F72AF;
+    color: #F9F7F7;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-task-button:hover {
+    background-color: #112D4E;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #3F72AF;
+  }
+  
