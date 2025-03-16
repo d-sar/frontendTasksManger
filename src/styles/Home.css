@@ -1,4 +1,74 @@
-.container{
-    height: 200px;
-    padding-left:100px ;
+.add-task-button {
+  width: 200px;
+  height: 150px;
+  background: rgba(200, 200, 220, 0.2);
+  border: 2px dashed rgba(100, 100, 120, 0.5);
+  color: rgba(100, 100, 120, 0.7);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 
+      background 0.3s ease, 
+      transform 0.3s ease, 
+      box-shadow 0.3s ease;
+}
+
+.add-task-button:hover {
+  background: rgba(200, 200, 220, 0.4);
+  transform: scale(1.05); /* Augmente légèrement la taille */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
+}
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.add-task-button {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Fond semi-transparent */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Transparence noire */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Au-dessus de la page */
+}
+
+/* Contenu centré */
+.modal-content {
+  background: rgba(255, 255, 255, 0.9); /* Transparence blanche */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 440px;
+  max-width: 90%; /* Responsive */
+  animation: fadeIn 0.3s ease; /* Animation d'apparition */
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
 }

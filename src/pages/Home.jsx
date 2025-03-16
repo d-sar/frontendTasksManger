@@ -1,28 +1,32 @@
-import React from 'react'
-import '../styles/Home.css' 
-import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import axios from 'axios';
 
-export default function Home() {
-  
-  return (
-    <Container>
-   <Card className='shadow'>
-      <Card.Header>titre</Card.Header>
-      <Card.Body>
-        <Card.Title>learn java </Card.Title>
-        <Card.Text>
-          video 
-        </Card.Text>
-        <Card.Text>
-          date : 
-        </Card.Text>
+import React, { useState } from "react";
+import "../styles/Home.css";
+import AddTask from "../components/tasks/AddTask.jsx"; // Assurez-vous que le chemin est correct
 
-        <Button variant="primary">completed</Button>
-      </Card.Body>
-    </Card>
-    </Container>
-  )
+export default function Sidebar() {
+    const [showModal, setShowModal] = useState(false); // État pour afficher ou masquer le formulaire
+
+    const handleAddTaskClick = () => {
+        setShowModal(true); // Affiche la modal
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false); // Masque la modal
+    };
+
+    return (
+        <div style={{ marginLeft: 270, paddingTop: 100 }}>
+            <button className="add-task-button" onClick={handleAddTaskClick}>
+                Add Task
+            </button>
+
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <AddTask onAddTask={handleCloseModal} />
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
