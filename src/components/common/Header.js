@@ -7,9 +7,9 @@ export default function Header() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h1 style={{ margin: 0 }}>Tasks Manager</h1>
                 <nav>
-                    <a href="#tasks" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>Tasks</a>
+                    <a href="#tasks" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}></a>
                     <a href="#contact" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>Contact</a>
-                    <a href="/addTask" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}>Add Task</a>
+                    <a href="/addTask" style={{ color: '#fff', textDecoration: 'none', margin: '0 10px' }}></a>
                 </nav>
             </div>
         </header>

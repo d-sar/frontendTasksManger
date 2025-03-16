@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
 import AddTask from "../components/tasks/AddTask.jsx"; // Assurez-vous que le chemin est correct
+import ViewTask from "../components/tasks/ViewTask.jsx";
 
 export default function Sidebar() {
     const [showModal, setShowModal] = useState(false); // État pour afficher ou masquer le formulaire
@@ -27,6 +28,7 @@ export default function Sidebar() {
                     </div>
                 </div>
             )}
+            < ViewTask />
         </div>
     );
 }

@@ -1,33 +1,43 @@
 import React from "react";
 import "../../styles/ViewTask.css"// Importation du style CSS
 
-const ViewTask = ({ tasks, onDeleteTask }) => {
-  return (
-    
-    <div className="container mt-4 ">
-      <h2 className="text-center">Task List</h2>
-      {tasks.length === 0 ? (
-        <p className="text-center">No tasks available.</p>
-      ) : (
-        <ul className="task-list">
-          {tasks.map((task, index) => (
-            <li key={index} className={`task-item ${task.completed ? "completed" : ""}`}>
-              <div className="task-header">
-                <h4 className="task-title">{task.title}</h4>
-                {task.important && <span className="badge important">Important</span>}
-              </div>
-              <p className="task-date"><strong>Date:</strong> {task.date}</p>
-              {task.description && <p className="task-desc">{task.description}</p>}
-              <button className="delete-button" onClick={() => onDeleteTask(index)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-   
-  );
+
+const ViewTask = () => {
+    const tasks = [
+        { id: 1, title: "Study React",descreption:"aaa",date:"03-04-2025", priority: "High", completed: false },
+        { id: 2, title: "Grocery Shopping",descreption:"aaa",date:"03-04-2025", priority: "Medium", completed: true },
+        { id: 3, title: "Workout",descreption:"aaa",date:"03-04-2025", priority: "Low", completed: false },
+    ];
+
+    return (
+        <div className="view-task-container" >
+            <h2>Task List</h2>
+            <table className="task-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tasks.map((task) => (
+                        <tr key={task.id}>
+                            <td>{task.id}</td>
+                            <td>{task.title}</td>
+                            <td>{task.descreption}</td>
+                            <td>{task.date}</td>
+                            <td>{task.priority}</td>
+                            <td>{task.completed ? "Completed" : "Pending"}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 };
 
 export default ViewTask;

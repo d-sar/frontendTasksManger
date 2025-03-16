@@ -1,16 +1,18 @@
-import React from 'react'
+import React from  "react";
 import '../../styles/Navbar.css'
 
 
 export default function() {
+
         
     return (
-        <div>
-            <div className="sidebar">
+        <div >
+            <div className="sidebar" >
                
                 <nav className="nav flex-column">
-                    <a className="nav-link active" href="#">taks</a>
-                    <a className="nav-link" href="#">Contact</a>
+                <a className="nav-link active" href="/dashboard" >Home</a>
+                    <a className="nav-link active" href="/viewTask">Task List</a>
+                    <a className="nav-link" href="#"></a>
                     <a className="nav-link" href="/addTask">Add Task</a>
                   
     
