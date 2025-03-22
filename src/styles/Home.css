@@ -1,8 +1,8 @@
 .add-task-button {
   width: 200px;
   height: 150px;
-  background: rgba(200, 200, 220, 0.2);
-  border: 2px dashed rgba(100, 100, 120, 0.5);
+  background: rgba(100, 200, 220, 0.2);
+  border: 2px dashed rgba(500, 100, 120, 0.5);
   color: rgba(100, 100, 120, 0.7);
   font-size: 16px;
   font-weight: bold;
@@ -13,7 +13,7 @@
   transition: 
       background 0.3s ease, 
       transform 0.3s ease, 
-      box-shadow 0.3s ease;
+      box-shadow 0.3s ease;      
 }
 
 .add-task-button:hover {

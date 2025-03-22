@@ -1,41 +1,58 @@
-import React from "react";
-import "../../styles/ViewTask.css"// Importation du style CSS
-
+import React, { useState, useEffect } from "react";
+import "../../styles/ViewTask.css";
+import EditTask from "./EditTask";
+import DeleteList from "./DeleteTask";
 
 const ViewTask = () => {
-    const tasks = [
-        { id: 1, title: "Study React",descreption:"aaa",date:"03-04-2025", priority: "High", completed: false },
-        { id: 2, title: "Grocery Shopping",descreption:"aaa",date:"03-04-2025", priority: "Medium", completed: true },
-        { id: 3, title: "Workout",descreption:"aaa",date:"03-04-2025", priority: "Low", completed: false },
-    ];
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+            try {
+                const response = await fetch("http://localhost:8081/fetch");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch tasks");
+                }
+                const data = await response.json();
+                setTasks(data);
+            } catch (error) {
+                console.error("Error fetching tasks:", error);
+            }
+        };
+
+        fetchTasks();
+    }, []);
+
+    const handleTaskDeleted = (deletedTaskId) => {
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== deletedTaskId));
+    };
 
     return (
-        <div className="view-task-container" >
+        <div className="view-task-container">
             <h2>Task List</h2>
-            <table className="task-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Priority</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {tasks.map((task) => (
-                        <tr key={task.id}>
-                            <td>{task.id}</td>
-                            <td>{task.title}</td>
-                            <td>{task.descreption}</td>
-                            <td>{task.date}</td>
-                            <td>{task.priority}</td>
-                            <td>{task.completed ? "Completed" : "Pending"}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="task-card-container">
+                {tasks.map((task) => (
+                    <div className="task-card" key={task.id}>
+                        <h3>{task.title}</h3>
+                        <p>{task.description}</p>
+                        <p><strong>📅</strong> {task.deadline}</p>
+                        <div className={`priority-badge ${task.priority.toLowerCase()}`}>
+                        <p><strong>Priority:</strong> 
+    {task.priority === "low" && "🐢 Low"}
+    {task.priority === "medium" && "⏳ Medium"}
+    {task.priority === "high" && "🔥 High"}
+</p>
+
+                        </div>
+                       
+                        <p><strong>Status :  </strong> {task.done ? "Completed" : "Pending"}</p>
+                        <div className="task-actions">
+                            <DeleteList className="btn btn-danger" taskId={task.id} onTaskDeleted={handleTaskDeleted} />
+                            <EditTask taskId={task.id} />
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

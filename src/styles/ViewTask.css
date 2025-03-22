@@ -1,31 +1,172 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ViewTask Container */
 .view-task-container {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #F9F7F7;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to right, #F9F7F7, #DBE2EF);
+  overflow: hidden;
 }
 
-.task-table {
+/* Title Styles */
+h2 {
+  color: #3F72AF;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Card Container */
+.task-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
   width: 100%;
-  border-collapse: collapse;
+  max-width: 1200px;
+  transition: all 0.3s ease;
 }
 
-.task-table th,
-.task-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+/* Task Card */
+.task-card {
+  background-color: #DBE2EF;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.task-table th {
-  background: #112D4E;
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+  
+}
+
+/* Task Title */
+.task-card h3 {
+  font-size: 1.8rem;
+  color: #112D4E;
+  font-weight: 600;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+  
+}
+
+
+/* Task Description */
+.task-card p {
+  color: #112D4E;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Priority and Status Section */
+.task-card strong {
+  color: #3F72AF;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Task Date & Priority */
+.task-card .date, .task-card .priority {
+  display: inline-block;
+  background-color: #3F72AF;
+  color: #F9F7F7;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+/* Buttons for Edit and Delete */
+button {
+  background-color: #112D4E;
+  color: #F9F7F7;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #3F72AF;
+  transform: translateY(-3px);
+}
+
+/* Hover and Active States */
+button:active {
+  transform: translateY(1px);
+}
+
+/* Task Card Animation */
+@keyframes card-pop {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.task-card {
+  animation: card-pop 0.6s ease-out;
+}
+
+
+/* Badge de priorité */
+.priority-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 3px;
+  text-transform: capitalize;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.task-table tr:nth-child(even) {
-  background: #3f71af3b;
+/* Dégradés et couleurs de priorité */
+.priority-badge.high {
+  background: linear-gradient(135deg, #ff56221a, #F44336); /* Dégradé rouge-orangé */
 }
 
-.task-table tr:hover {
-  background: #DBE2EF;
+.priority-badge.medium {
+  background: linear-gradient(135deg, #FFC107, #ff990037); /* Dégradé orange-jaune */
+}
+
+.priority-badge.low {
+  background: linear-gradient(135deg, #8BC34A, #4caf4f0d); /* Dégradé vert clair */
 }
