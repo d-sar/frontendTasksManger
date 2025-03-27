@@ -39,14 +39,8 @@ Ce projet est développé en collaboration avec **mreckah**, qui est responsable
 
 ```bash
 git clone https://github.com/d-sar/frontendTasksManger.git
-cd frontendTasksManger
-### 🏗️ Installation des dépendances (Frontend)
-```bash
-npm install
-### ▶️ Lancer l'application frontend
-```bash
-npm start
-🔧 Lancer le backend
+cd frontendTasksManger 
+
 
 
 
